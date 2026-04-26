@@ -1,9 +1,4 @@
 {
-  "engines": {
-    "node": "24.x"
-  },
-  "installCommand": "yarn install --ignore-engines",
-  "buildCommand": "yarn build",
   "rewrites": [
     {
       "source": "/api/:match*",
