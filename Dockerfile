@@ -13,14 +13,8 @@ RUN yarn config set electron_mirror https://npmmirror.com/mirrors/electron/ && \
 COPY . .
 RUN yarn build
 
-FROM node:20-alpine AS app
-
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories \
-  && apk add --no-cache nginx \
-  && npm config set registry https://registry.npmmirror.com \
-  && npm i -g @neteasecloudmusicapienhanced/api
-
+FROM nginx:stable-alpine AS app
 COPY --from=build /app/docker/nginx.conf.example /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
-
-CMD ["sh", "-c", "nginx && node $(npm root -g)/@neteasecloudmusicapienhanced/api/app.js"]
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
