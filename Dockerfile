@@ -23,4 +23,4 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/re
 COPY --from=build /app/docker/nginx.conf.example /etc/nginx/conf.d/default.conf
 COPY --from=build /app/dist /usr/share/nginx/html
 
-CMD ["sh", "-c", "nginx && npx @neteasecloudmusicapienhanced/api"]
+CMD ["sh", "-c", "nginx && node $(npm root -g)/@neteasecloudmusicapienhanced/api/app.js"]
