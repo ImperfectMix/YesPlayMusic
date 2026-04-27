@@ -8,6 +8,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "dev:web+api": "concurrently -n WEB,API -c cyan,green \"yarn serve\" \"yarn netease_api:run\"",
+    "dev:electron+api": "concurrently -n ELECTRON,API -c magenta,green \"yarn electron:serve\" \"yarn netease_api:run\"",
     "electron:build": "vue-cli-service electron:build -p never",
     "electron:build-all": "vue-cli-service electron:build -p never -mwl",
     "electron:build-mac": "vue-cli-service electron:build -p never -m",
@@ -79,6 +81,7 @@
     "x11": "^2.3.0"
   },
   "devDependencies": {
+    "@esbuild/win32-x64": "0.20.2",
     "@types/node": "^17.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
@@ -86,6 +89,7 @@
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "concurrently": "7.6.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",

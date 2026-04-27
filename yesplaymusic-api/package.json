@@ -1,0 +1,17 @@
+{
+  "name": "yesplaymusic-api",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Standalone API service for YesPlayMusic based on @neteaseapireborn/api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@neteaseapireborn/api": "^4.29.7"
+  }
+}
