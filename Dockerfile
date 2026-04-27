@@ -13,10 +13,10 @@ RUN yarn config set electron_mirror https://npmmirror.com/mirrors/electron/ && \
 COPY . .
 RUN yarn build
 
-FROM nginx:1.20.2-alpine AS app
+FROM node:20-alpine AS app
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories \
-  && apk add --no-cache nodejs npm \
+  && apk add --no-cache nginx \
   && npm config set registry https://registry.npmmirror.com \
   && npm i -g @neteasecloudmusicapienhanced/api
 
