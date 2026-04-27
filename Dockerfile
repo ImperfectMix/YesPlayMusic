@@ -8,7 +8,7 @@ RUN yarn config set electron_mirror https://npmmirror.com/mirrors/electron/ && \
     yarn config set registry https://registry.npmmirror.com && \
     sed -i 's/registry.yarnpkg.com/registry.npmmirror.com/g' yarn.lock && \
     sed -i 's/registry.npmjs.org/registry.npmmirror.com/g' yarn.lock && \
-    yarn install
+    yarn install --ignore-engines
 COPY . .
 RUN yarn build
 
