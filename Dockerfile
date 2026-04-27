@@ -1,5 +1,6 @@
 FROM node:20-alpine AS build
 ENV VUE_APP_NETEASE_API_URL=/api
+ENV NODE_OPTIONS=--openssl-legacy-provider
 WORKDIR /app
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories &&\
 	apk add --no-cache python3 make g++ git
