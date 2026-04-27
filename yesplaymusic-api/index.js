@@ -8,10 +8,10 @@ async function start() {
     fs.writeFileSync(anonymousTokenPath, '', 'utf-8');
   }
 
-  const generateConfig = require('@neteaseapireborn/api/generateConfig');
+  const generateConfig = require('@neteasecloudmusicapienhanced/api/generateConfig');
   await generateConfig();
 
-  const { serveNcmApi } = require('@neteaseapireborn/api/server');
+  const { serveNcmApi } = require('@neteasecloudmusicapienhanced/api/server');
   await serveNcmApi({
     port: process.env.PORT || 3000,
     host: process.env.HOST || '0.0.0.0',

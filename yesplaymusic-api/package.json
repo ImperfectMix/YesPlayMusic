@@ -12,6 +12,6 @@
     "node": ">=18"
   },
   "dependencies": {
-    "@neteaseapireborn/api": "^4.29.7"
+    "@neteasecloudmusicapienhanced/api": "latest"
   }
 }
